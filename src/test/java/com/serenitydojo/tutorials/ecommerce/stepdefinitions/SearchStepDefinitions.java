@@ -16,25 +16,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchStepDefinitions extends UIInteractionSteps {
 
+    MenuBar menuBar;
+    SearchResults searchResults;
+
     @When("she searches for products related to {string}")
     public void sheSearchesForProductsRelatedTo(String keyword) {
-        $(MenuBar.SEARCH_BOX).typeAndEnter(keyword);
+        menuBar.searchFor(keyword);
     }
 
     @Then("she should be presented with the following products:")
     public void sheShouldBePresentedWithTheFollowingProducts(List<String> expectedProducts) {
-        List<String> displayedProducts = $$(SearchResults.PRODUCT_NAME).texts();
-        assertThat(displayedProducts).containsAll(expectedProducts);
+        assertThat(searchResults.displayedProductNames()).containsAll(expectedProducts);
     }
 
     @Then("she should be presented with the following related search terms:")
     public void sheShouldBePresentedWithTheFollowingRelatedSearchTerms(List<String> expectedTerms) {
-        List<String> displayedTerms = $$(SearchResults.RELATED_SEARCH_TERM).texts();
-        assertThat(displayedTerms).containsAll(expectedTerms);
+        assertThat(searchResults.relatedSearchTerms()).containsAll(expectedTerms);
     }
 
     @And("she selects the related search term {string}")
     public void sheSelectsTheRelatedSearchTerm(String relatedSearch) {
-        $(SearchResults.relatedSearchTerm(relatedSearch)).click();
+        searchResults.searchByRelatedTerm(relatedSearch);
     }
 }
