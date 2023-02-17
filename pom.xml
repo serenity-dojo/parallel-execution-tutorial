@@ -72,6 +72,12 @@
             <version>3.23.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- Lambdatest integration -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-lambdatest</artifactId>
+            <version>${serenity.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
