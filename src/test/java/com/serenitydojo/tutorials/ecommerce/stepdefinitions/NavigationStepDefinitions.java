@@ -19,6 +19,7 @@ public class NavigationStepDefinitions extends UIInteractionSteps {
     @Given("Olivia is shopping on the Luma site")
     public void olivia_is_shopping_on_the_Luma_site() {
         openUrl("https://magento.softwaretestingboard.com/");
+        waitForVisibilityOf(MenuBar.MENU_DROPDOWN_CARETS);
     }
 
     List<String> menuBarItems;
@@ -36,7 +37,6 @@ public class NavigationStepDefinitions extends UIInteractionSteps {
 
     @When("she views the subcategories of the {string} category")
     public void sheViewsTheSubcategoriesOfTheCategory(String category) {
-        waitForVisibilityOf(MenuBar.category(category));
         moveTo(MenuBar.category(category));
     }
 
@@ -53,7 +53,6 @@ public class NavigationStepDefinitions extends UIInteractionSteps {
 
     @When("she views the subcategories of the {string} subcategory in the {string} category")
     public void sheViewsTheSubcategoriesOfTheSubcategoryInTheCategory(String subcategory, String category) {
-        waitForVisibilityOf(MenuBar.category(category));
         moveTo(MenuBar.category(category));
         moveTo(MenuBar.category(subcategory));
     }
@@ -62,7 +61,6 @@ public class NavigationStepDefinitions extends UIInteractionSteps {
     @Then("she should be presented with the following 2nd level subcategories: {commaSeparatedList}")
     public void sheShouldBePresentedWithTheFollowingNdLevelSubcategoriesSubSubCategories(List<String> expectedSubcategories) {
         List<String> visibleSubcategories = findAll(MenuBar.THIRD_LEVEL_MENU_ITEMS).texts();
-
         assertThat(visibleSubcategories).containsAll(expectedSubcategories);
     }
 }
