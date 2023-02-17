@@ -1,2 +1,4 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Search by keyword","Searching for a term","SUCCESS","2023-02-17T07:42:52.194008895Z[Etc/UTC]","0.0","6.71"
+"Search by keyword","Olivia searches for tops","SUCCESS","2023-02-17T15:03:27.153248393Z[Etc/UTC]","0.0","3.25"
+"Search by keyword","Olivia sees related searches","SUCCESS","2023-02-17T15:03:30.512203405Z[Etc/UTC]","0.0","3.17"
+"Search by keyword","Olivia views the related search items","SUCCESS","2023-02-17T15:03:33.79271517Z[Etc/UTC]","0.0","4.76"
