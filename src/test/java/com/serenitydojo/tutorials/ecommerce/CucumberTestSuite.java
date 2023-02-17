@@ -1,4 +1,4 @@
-package starter;
+package com.serenitydojo.tutorials.ecommerce;
 
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
